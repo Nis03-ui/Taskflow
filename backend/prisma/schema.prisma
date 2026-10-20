@@ -11,3 +11,15 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum Status {
+  PENDING
+  COMPELETED
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  status    Status   @default(PENDING)
+  createdAt DateTime @default(now())
+}
